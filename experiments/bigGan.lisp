@@ -35,12 +35,9 @@
                                      "ai.djl.util.Progress"))
        (progress-bar-instance (jnew "ai.djl.training.util.ProgressBar"))
        (builder-instance7 (jcall opt-progress-method builder-instance6 progress-bar-instance))
+       (build-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "build")))
 
-       )
 
-
-  builder-instance7
-
-  ;; TODO:  "build"
+  (jcall build-method builder-instance7)
 
   )
