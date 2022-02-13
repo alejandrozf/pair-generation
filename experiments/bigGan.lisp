@@ -20,10 +20,19 @@
                                  int-array-class image-array-class))
        (opt-filter-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
                                    "optFilter" "java.lang.String" "java.lang.String"))
-       (builder-instance4 (jcall opt-filter-method builder-instance3 "size" "256")))
+       (builder-instance4 (jcall opt-filter-method builder-instance3 "size" "256"))
+       (opt-arguments-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
+                                      "optArguments" "java.util.Map"))
+       (java-util-map-class (jclass "java.util.Map"))
+       (map-of-method (jmethod "java.util.Map" "of" "java.lang.Object"
+                               "java.lang.Object"))
+       (map-instance (jstatic map-of-method java-util-map-class "truncation" 0.4))
+       (builder-instance5 (jcall opt-arguments-method builder-instance4 map-instance))
+       )
 
-  builder-instance4
 
-  ;; TODO: "optArgument", "optEngine", "optProgress", "build"
+  builder-instance5
+
+  ;; TODO:  "optEngine", "optProgress", "build"
 
   )
