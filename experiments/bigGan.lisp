@@ -1,8 +1,6 @@
 ;; https://github.com/deepjavalibrary/djl/blob/master/examples/src/main/java/ai/djl/examples/inference/BigGAN.java
 
-(add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/slf4j-api-2.0.0-alpha6.jar")
-(add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/gson-2.8.9.jar")
-(add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/api-0.15.0-SNAPSHOT.jar")
+(add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/djl-biggan-example-fat.jar")
 
 (let* ((criteria-builder-method (jmethod "ai.djl.repository.zoo.Criteria" "builder"))
        (builder-instance1 (jcall criteria-builder-method "ai.djl.repository.zoo.Criteria"))
@@ -42,7 +40,10 @@
        (load-model-method (jmethod "ai.djl.repository.zoo.Criteria" "loadModel"))
        )
 
-  (jcall load-model-method zoo-criteria)
+
+  zoo-criteria
+
+  ;; (jcall load-model-method zoo-criteria)
 
   ;; FIXME: add models to get rid of:
   ;; Java exception 'ai.djl.repository.zoo.ModelNotFoundException: No matching model with specified Input/Output type found.'.
