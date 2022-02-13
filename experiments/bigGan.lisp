@@ -1,5 +1,6 @@
 ;; https://github.com/deepjavalibrary/djl/blob/master/examples/src/main/java/ai/djl/examples/inference/BigGAN.java
 
+(add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/slf4j-api-2.0.0-alpha6.jar")
 (add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/gson-2.8.9.jar")
 (add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/api-0.15.0-SNAPSHOT.jar")
 
@@ -35,9 +36,14 @@
                                      "ai.djl.util.Progress"))
        (progress-bar-instance (jnew "ai.djl.training.util.ProgressBar"))
        (builder-instance7 (jcall opt-progress-method builder-instance6 progress-bar-instance))
-       (build-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "build")))
+       (build-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "build"))
+       (zoo-criteria (jcall build-method builder-instance7))
+       (input (jarray-from-list '(100 207 971 970  933)))
+       (load-model-method (jmethod "ai.djl.repository.zoo.Criteria" "loadModel"))
+       )
 
+  (jcall load-model-method zoo-criteria)
 
-  (jcall build-method builder-instance7)
-
+  ;; FIXME: add models to get rid of:
+  ;; Java exception 'ai.djl.repository.zoo.ModelNotFoundException: No matching model with specified Input/Output type found.'.
   )
