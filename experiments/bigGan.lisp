@@ -31,12 +31,16 @@
        (opt-engine-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "optEngine"
                                    "java.lang.String"))
        (builder-instance6 (jcall opt-engine-method builder-instance5 "PyTorch"))
+       (opt-progress-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "optProgress"
+                                     "ai.djl.util.Progress"))
+       (progress-bar-instance (jnew "ai.djl.training.util.ProgressBar"))
+       (builder-instance7 (jcall opt-progress-method builder-instance6 progress-bar-instance))
 
        )
 
 
-  builder-instance6
+  builder-instance7
 
-  ;; TODO:  "optProgress", "build"
+  ;; TODO:  "build"
 
   )
