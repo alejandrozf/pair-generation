@@ -28,11 +28,15 @@
                                "java.lang.Object"))
        (map-instance (jstatic map-of-method java-util-map-class "truncation" 0.4))
        (builder-instance5 (jcall opt-arguments-method builder-instance4 map-instance))
+       (opt-engine-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "optEngine"
+                                   "java.lang.String"))
+       (builder-instance6 (jcall opt-engine-method builder-instance5 "PyTorch"))
+
        )
 
 
-  builder-instance5
+  builder-instance6
 
-  ;; TODO:  "optEngine", "optProgress", "build"
+  ;; TODO:  "optProgress", "build"
 
   )
