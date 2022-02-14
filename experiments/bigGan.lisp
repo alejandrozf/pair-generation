@@ -36,7 +36,7 @@
                                        "ai.djl.util.Progress"))
          (progress-bar-instance (jnew "ai.djl.training.util.ProgressBar"))
          (builder-instance7 (jcall opt-progress-method builder-instance6 progress-bar-instance))
-         (model-zoo-instance (jnew "ai.djl.basicmodelzoo.BasicModelZoo"))
+         (model-zoo-instance (jnew "ai.djl.pytorch.zoo.PtModelZoo"))
          (opt-model-zoo-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
                                         "optModelZoo" "ai.djl.repository.zoo.ModelZoo"))
          (builder-instance8 (jcall opt-model-zoo-method builder-instance7 model-zoo-instance))
@@ -46,6 +46,8 @@
          (load-model-method (jmethod "ai.djl.repository.zoo.Criteria" "loadModel"))
          )
 
+
+    (declare (ignore input load-model-method))
 
     zoo-criteria
 
