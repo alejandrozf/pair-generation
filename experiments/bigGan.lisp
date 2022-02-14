@@ -2,7 +2,9 @@
 
 (add-to-classpath "/home/alejandrozf/projects/pair-generation/lib/djl-biggan-example-fat.jar")
 
-(let* ((criteria-builder-method (jmethod "ai.djl.repository.zoo.Criteria" "builder"))
+
+(defun get-criteria ()
+  (let* ((criteria-builder-method (jmethod "ai.djl.repository.zoo.Criteria" "builder"))
        (builder-instance1 (jcall criteria-builder-method "ai.djl.repository.zoo.Criteria"))
        (method-of (jmethod "ai.djl.Application" "of" "java.lang.String"))
        (application-class (jclass "ai.djl.Application"))
@@ -47,4 +49,4 @@
 
   ;; FIXME: add models to get rid of:
   ;; Java exception 'ai.djl.repository.zoo.ModelNotFoundException: No matching model with specified Input/Output type found.'.
-  )
+  ))
