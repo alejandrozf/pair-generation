@@ -42,9 +42,13 @@
          (builder-instance8 (jcall opt-model-zoo-method builder-instance7 model-zoo-instance))
          (opt-group-id-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
                                        "optGroupId" "java.lang.String"))
+         (big-gan-translator (jnew "ai.djl.modality.cv.translator.BigGANTranslator" 0.4))
          (builder-instance9 (jcall opt-group-id-method builder-instance8 "ai.djl.pytorch"))
+         (opt-translator-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
+                                         "optTranslator" "ai.djl.translate.Translator"))
+         (builder-instance10 (jcall opt-translator-method builder-instance9 big-gan-translator))
          (build-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "build"))
-         (zoo-criteria (jcall build-method builder-instance9))
+         (zoo-criteria (jcall build-method builder-instance10))
          (input (jarray-from-list '(100 207 971 970  933)))
          (load-model-method (jmethod "ai.djl.repository.zoo.Criteria" "loadModel"))
          )
@@ -53,6 +57,8 @@
     (declare (ignore input load-model-method))
 
     zoo-criteria
+
+    ;; builder-instance10
 
     ;; (jcall load-model-method zoo-criteria)
 
