@@ -40,8 +40,11 @@
          (opt-model-zoo-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
                                         "optModelZoo" "ai.djl.repository.zoo.ModelZoo"))
          (builder-instance8 (jcall opt-model-zoo-method builder-instance7 model-zoo-instance))
+         (opt-group-id-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
+                                       "optGroupId" "java.lang.String"))
+         (builder-instance9 (jcall opt-group-id-method builder-instance8 "ai.djl.pytorch"))
          (build-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "build"))
-         (zoo-criteria (jcall build-method builder-instance8))
+         (zoo-criteria (jcall build-method builder-instance9))
          (input (jarray-from-list '(100 207 971 970  933)))
          (load-model-method (jmethod "ai.djl.repository.zoo.Criteria" "loadModel"))
          )
