@@ -47,8 +47,14 @@
          (opt-translator-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
                                          "optTranslator" "ai.djl.translate.Translator"))
          (builder-instance10 (jcall opt-translator-method builder-instance9 big-gan-translator))
+         (opt-artifact-id-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
+                                          "optArtifactId" "java.lang.String"))
+         (builder-instance11 (jcall opt-artifact-id-method builder-instance10 "pytorch-model-zoo"))
+         (opt-model-name-method (jmethod "ai.djl.repository.zoo.Criteria$Builder"
+                                         "optModelName" "java.lang.String"))
+         (builder-instance12 (jcall opt-model-name-method builder-instance11 "biggan-deep"))
          (build-method (jmethod "ai.djl.repository.zoo.Criteria$Builder" "build"))
-         (zoo-criteria (jcall build-method builder-instance10))
+         (zoo-criteria (jcall build-method builder-instance12))
          (input (jarray-from-list '(100 207 971 970  933)))
          (load-model-method (jmethod "ai.djl.repository.zoo.Criteria" "loadModel"))
          )
