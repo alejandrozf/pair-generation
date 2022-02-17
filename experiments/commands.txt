@@ -1,0 +1,1 @@
+jdb -classpath /home/alejandrozf/projects/pair-generation/lib/djl-biggan-example-fat.jar:biggan.jar ai.djl.examples.inference.BigGAN
